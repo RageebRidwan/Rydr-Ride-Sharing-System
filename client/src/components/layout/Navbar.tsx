@@ -58,7 +58,7 @@ export function Navbar() {
             className="flex items-center gap-2 font-bold text-xl"
           >
             <Car className="h-6 w-6 text-primary" />
-            <span>RideBooking</span>
+            <span>Rydr</span>
           </Link>
 
           {/* Desktop Navigation */}

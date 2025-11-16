@@ -14,7 +14,7 @@ export function Footer() {
               className="flex items-center gap-2 font-bold text-xl"
             >
               <Car className="h-6 w-6 text-primary" />
-              <span>RideBooking</span>
+              <span>Rydr</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Your trusted ride booking platform. Fast, safe, and reliable
@@ -168,7 +168,7 @@ export function Footer() {
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
           <p>
-            &copy; {new Date().getFullYear()} RideBooking. All rights reserved.
+            &copy; {new Date().getFullYear()} Rydr. All rights reserved.
           </p>
         </div>
       </div>
