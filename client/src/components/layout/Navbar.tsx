@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Car, LogOut, User, Menu } from "lucide-react";
+import { LogOut, User, Menu } from "lucide-react";
+import Logo from "@/assets/logo.svg";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -57,7 +58,8 @@ export function Navbar() {
             to={ROUTES.HOME}
             className="flex items-center gap-2 font-bold text-xl"
           >
-            <Car className="h-6 w-6 text-primary" />
+            {/* <Car className="h-6 w-6 text-primary" /> */}
+            <img src={Logo} alt="logo" className="h-6 w-6" />
             <span>Rydr</span>
           </Link>
 

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Car, Facebook, Twitter, Instagram, Mail } from "lucide-react";
 import { ROUTES } from "@/lib/constants";
+import Logo from "@/assets/logo.svg";
 
 export function Footer() {
   return (
@@ -13,7 +14,8 @@ export function Footer() {
               to={ROUTES.HOME}
               className="flex items-center gap-2 font-bold text-xl"
             >
-              <Car className="h-6 w-6 text-primary" />
+              {/* <Car className="h-6 w-6 text-primary" /> */}
+              <img src={Logo} alt="logo" className="h-6 w-6"/>
               <span>Rydr</span>
             </Link>
             <p className="text-sm text-muted-foreground">
@@ -167,9 +169,7 @@ export function Footer() {
         </div>
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>
-            &copy; {new Date().getFullYear()} Rydr. All rights reserved.
-          </p>
+          <p>&copy; {new Date().getFullYear()} Rydr. All rights reserved.</p>
         </div>
       </div>
     </footer>
