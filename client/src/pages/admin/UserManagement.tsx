@@ -18,7 +18,7 @@ import {
 import { LoadingSpinner } from "@/components/common/LoadingSpinner";
 import { ConfirmDialog } from "@/components/common/ConfirmDialog";
 import { getUserStatusColor } from "@/lib/utils";
-import { Search, Ban, CheckCircle, XCircle } from "lucide-react";
+import { Search, Ban, CheckCircle, XCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 
 export default function UserManagement() {
@@ -33,7 +33,7 @@ export default function UserManagement() {
 
   const { data, isLoading, refetch } = useGetAllUsersQuery({
     page,
-    limit: 10,
+    limit: 5,
     search,
     role,
     status,
@@ -41,6 +41,7 @@ export default function UserManagement() {
   const [updateStatus] = useUpdateUserStatusMutation();
 
   const users = data?.data || [];
+  const pagination = data?.pagination;
 
   const handleStatusUpdate = async () => {
     if (!selectedUser) return;
@@ -194,6 +195,34 @@ export default function UserManagement() {
                     </div>
                   </div>
                 ))}
+                {/* Pagination */}
+                {pagination && pagination.totalPages > 1 && (
+                  <div className="flex items-center justify-between mt-6 pt-6 border-t">
+                    <p className="text-sm text-muted-foreground">
+                      Page {pagination.page} of {pagination.totalPages}
+                    </p>
+                    <div className="flex gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setPage((p) => Math.max(1, p - 1))}
+                        disabled={pagination.page === 1}
+                      >
+                        <ChevronLeft className="h-4 w-4 mr-1" />
+                        Previous
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setPage((p) => p + 1)}
+                        disabled={pagination.page === pagination.totalPages}
+                      >
+                        Next
+                        <ChevronRight className="h-4 w-4 ml-1" />
+                      </Button>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </CardContent>

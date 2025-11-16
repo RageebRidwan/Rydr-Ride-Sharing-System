@@ -36,7 +36,7 @@ export default function RideDetails() {
   const [rating, setRating] = useState(0);
   const [feedback, setFeedback] = useState("");
   const [showCancelDialog, setShowCancelDialog] = useState(false);
-  const [cancelReason, setCancelReason] = useState("");
+  // const [cancelReason, setCancelReason] = useState("");
 
   const ride = data?.data?.ride;
 
@@ -71,7 +71,7 @@ export default function RideDetails() {
 
   const handleCancelRide = async () => {
     try {
-      await cancelRide({ id: id!, reason: cancelReason }).unwrap();
+      await cancelRide({ id: id! }).unwrap();
       toast.success("Ride cancelled successfully");
       setShowCancelDialog(false);
       refetch();

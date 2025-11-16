@@ -180,7 +180,7 @@ export default function Analytics() {
                     fill="#8884d8"
                     dataKey="value"
                   >
-                    {userDistributionData.map((entry, index) => (
+                    {userDistributionData.map((_, index) => (
                       <Cell
                         key={`cell-${index}`}
                         fill={COLORS[index % COLORS.length]}
@@ -215,7 +215,7 @@ export default function Analytics() {
                     fill="#8884d8"
                     dataKey="value"
                   >
-                    {userStatusData.map((entry, index) => (
+                    {userStatusData.map((_, index) => (
                       <Cell
                         key={`cell-${index}`}
                         fill={COLORS[index % COLORS.length]}
@@ -269,7 +269,7 @@ export default function Analytics() {
                     fill="#8884d8"
                     dataKey="value"
                   >
-                    {driverApprovalData.map((entry, index) => (
+                    {driverApprovalData.map((_, index) => (
                       <Cell
                         key={`cell-${index}`}
                         fill={COLORS[index % COLORS.length]}

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate, Link, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -58,7 +57,10 @@ export default function LoginPage() {
     try {
       const response = await login(data).unwrap();
       dispatch(
-        setCredentials({ user: response.data!.user, token: response.data!.token })
+        setCredentials({
+          user: response.data!.user,
+          token: response.data!.token,
+        })
       );
       toast.success("Login successful!");
 
