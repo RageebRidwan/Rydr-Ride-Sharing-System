@@ -5,7 +5,7 @@ A modern, full-stack ride booking application built with React 19, Redux Toolkit
 ## 🌐 Live Demo
 
 - **Frontend:** [Live](https://rydr-ride-sharing-system.vercel.app/)
-- **Backend API:** [Live](https://ride-booking-api-dltt.onrender.com/))
+- **Backend API:** [Live](https://ride-booking-api-dltt.onrender.com/)
 
 ## 🔐 Demo Credentials
 
