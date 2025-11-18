@@ -4,8 +4,8 @@ A modern, full-stack ride booking application built with React 19, Redux Toolkit
 
 ## 🌐 Live Demo
 
-- **Frontend:** [(https://rydr-ride-sharing-system.vercel.app/)]
-- **Backend API:** [(ride-booking-api-dltt.onrender.com)]
+- **Frontend:** (https://rydr-ride-sharing-system.vercel.app/)
+- **Backend API:** (ride-booking-api-dltt.onrender.com)
 
 ## 🔐 Demo Credentials
 
@@ -153,9 +153,3 @@ npm run preview      # Preview production build
 - Drivers can cancel accepted rides before picking up the rider
 - All location searches use OpenStreetMap Nominatim API
 - Real-time updates refresh every 10 seconds on active ride pages
-
-MIT License
-
----
-
-Built with ❤️ using React, Redux Toolkit, Tailwind CSS, and shadcn/ui
