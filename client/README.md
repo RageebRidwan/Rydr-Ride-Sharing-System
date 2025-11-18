@@ -1,73 +1,155 @@
-# React + TypeScript + Vite
+# 🚗 Ride Booking Platform - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, full-stack ride booking application built with React 19, Redux Toolkit, and Tailwind CSS. Features role-based dashboards for Riders, Drivers, and Admins.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend:** [Live](https://rydr-ride-sharing-system.vercel.app/)
+- **Backend API:** [Live](https://ride-booking-api-dltt.onrender.com/)
 
-## React Compiler
+## 🔐 Demo Credentials
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+Rider:
+Email: doerider@test.com
+Password: rider123
 
-## Expanding the ESLint configuration
+Driver:
+Email: driver@test.com
+Password: driver123
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Admin:
+Email: admin@test.com
+Password: admin1234
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ✨ Features
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### For Riders
+- 🚕 Request rides with automatic location geocoding
+- 📍 Track active rides in real-time
+- ⭐ Rate drivers and leave feedback
+- 📊 View ride history with filters
+- 💳 See estimated fares before booking
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### For Drivers
+- 🔔 Receive and accept ride requests
+- 🗺️ Update ride status (Picked Up → In Transit → Completed)
+- 💰 Track earnings (daily/weekly/monthly)
+- 📈 View ride history and ratings
+- 🔄 Toggle online/offline status
+
+### For Admins
+- 👥 Manage users (block/suspend/activate)
+- ✅ Approve/reject driver applications
+- 🚗 Monitor all rides across platform
+- 📊 View analytics and statistics
+- ⭐ Track driver ratings
+
+## 🛠️ Tech Stack
+
+- **Framework:** React 19 + TypeScript
+- **Build Tool:** Vite 6
+- **State Management:** Redux Toolkit + RTK Query
+- **Styling:** Tailwind CSS 4 + shadcn/ui
+- **Routing:** React Router v7
+- **Forms:** React Hook Form + Zod
+- **Charts:** Recharts
+- **Notifications:** Sonner
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js >= 18.x
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone [https://github.com/RageebRidwan/Rydr-Ride-Sharing-System.git]
+cd client
+
+# Install dependencies
+npm install
+
+# Create environment file
+cp .env.example .env.local
 ```
+
+### Environment Variables
+
+Create a `.env.local` file:
+
+```env
+VITE_API_URL=https://ride-booking-api-dltt.onrender.com/api
+```
+
+### Development
+
+```bash
+npm run dev
+# App runs on http://localhost:3000
+```
+
+### Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── app/              # Redux store configuration
+├── features/         # Redux slices & RTK Query APIs
+├── components/       # Reusable UI components
+│   ├── ui/          # shadcn/ui components
+│   ├── layout/      # Navbar, Footer, Sidebar
+│   └── common/      # Shared components
+├── pages/           # Page components by role
+│   ├── public/      # Landing, About, Contact, etc.
+│   ├── rider/       # Rider dashboard & features
+│   ├── driver/      # Driver dashboard & features
+│   └── admin/       # Admin dashboard & features
+├── lib/             # Utilities & helpers
+└── types/           # TypeScript type definitions
+```
+
+## 🎯 Key Features Implemented
+
+- ✅ Role-based authentication & authorization
+- ✅ Real-time ride tracking with auto-refresh
+- ✅ Automatic geocoding (address → coordinates)
+- ✅ Pagination & filtering on all list pages
+- ✅ Responsive design (mobile/tablet/desktop)
+- ✅ Toast notifications for user feedback
+- ✅ Form validation with Zod
+- ✅ Error handling & loading states
+- ✅ Dark mode support
+- ✅ Driver can cancel accepted rides before pickup
+
+## 📦 Available Scripts
+
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+```
+
+## 🌟 Highlights
+
+- **Modern Stack:** Built with latest React 19, Vite 6, and Tailwind CSS 4
+- **Type-Safe:** Full TypeScript coverage
+- **Performance:** Lazy-loaded routes, optimized bundle size
+- **UX:** Smooth animations, skeleton loaders, instant feedback
+- **Maintainable:** Clean architecture, modular components
+
+## 📝 Notes
+
+- Riders can only cancel rides with "requested" status
+- Drivers can cancel accepted rides before picking up the rider
+- All location searches use OpenStreetMap Nominatim API
+- Real-time updates refresh every 10 seconds on active ride pages
