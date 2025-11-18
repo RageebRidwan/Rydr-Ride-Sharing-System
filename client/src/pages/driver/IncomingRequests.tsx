@@ -18,6 +18,7 @@ import { Inbox, MapPin, User } from "lucide-react";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/lib/constants";
+import { useEffect } from "react";
 
 export default function IncomingRequests() {
   const navigate = useNavigate();
@@ -25,6 +26,12 @@ export default function IncomingRequests() {
   const [acceptRide, { isLoading: isAccepting }] = useAcceptRideMutation();
 
   const rides = data?.data || [];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      refetch();
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [refetch]);
 
   const handleAcceptRide = async (rideId: string) => {
     try {
