@@ -12,6 +12,7 @@ import { useGetDriverHistoryQuery } from "@/features/driver/driverApi";
 import { LoadingSpinner } from "@/components/common/LoadingSpinner";
 import { ErrorMessage } from "@/components/common/ErrorMessage";
 import { EmptyState } from "@/components/common/EmptyState";
+import { useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import {
   formatCurrency,
@@ -25,13 +26,19 @@ export default function DriverHistory() {
   const [page, setPage] = useState(1);
   // const [status, setStatus] = useState("");
 
-  const { data, isLoading, error } = useGetDriverHistoryQuery({
+  const { data, isLoading,refetch, error } = useGetDriverHistoryQuery({
     page,
     limit: 10,
   });
 
   const rides = data?.data || [];
   const pagination = data?.pagination;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      refetch();
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [refetch]);
 
   return (
     <DashboardLayout>
