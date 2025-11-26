@@ -28,4 +28,5 @@ server/node_modules
 server/dist
 server/.env
 
-
+# ---- Claude Code ----
+.claude/
